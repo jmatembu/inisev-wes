@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "6233a31a-0b0a-4ff5-9074-f559648fe338",
+		"name": "Inisev Website Subscription API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create website post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "{{csrfToken}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Working at Inisev is my goal (Part 8)",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "This post will highlight what is going to happen. Right now my focus is on nailing this test project.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domain}}/api/websites/1/posts",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"websites",
+						"1",
+						"posts"
+					]
+				},
+				"description": "Create a post for a particular website"
+			},
+			"response": []
+		},
+		{
+			"name": "Subscribe to website",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "website_id",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domain}}/api/users/1/subscriptions",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"1",
+						"subscriptions"
+					]
+				},
+				"description": "This allows a user to subscribe to a particular website."
+			},
+			"response": []
+		},
+		{
+			"name": "Show website details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{domain}}/api/websites/1",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"websites",
+						"1"
+					]
+				},
+				"description": "Show details of a particular website"
+			},
+			"response": []
+		},
+		{
+			"name": "Create website",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "url",
+							"value": "https://inisev.com",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Inisev",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Use our products for free & earn nice affiliate commissions.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domain}}/api/websites",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"websites"
+					]
+				},
+				"description": "Create a website"
+			},
+			"response": []
+		},
+		{
+			"name": "List all websites",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{domain}}/api/websites",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"websites"
+					]
+				},
+				"description": "List all available websites"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "http://inisev-wes.test"
+		}
+	]
+}
